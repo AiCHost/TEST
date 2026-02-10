@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIPath - Il Futuro è Intelligenza Artificiale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-black: #0a0a0a;
+            --secondary-gray: #666666;
+            --light-gray: #f8f8f8;
+            --border-gray: #e5e5e5;
+            --white: #ffffff;
+            --accent: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-gray);
+            z-index: 1000;
+            padding: 1.2rem 3rem;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-gray);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-black);
+        }
+
+        .cta-nav {
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--primary-black);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--secondary-gray);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary-black);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-black);
+            border: 2px solid var(--border-gray);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-black);
+            transform: translateY(-3px);
+        }
+
+        /* Bento Grid Section */
+        .bento-section {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--secondary-gray);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bento-card {
+            background: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-black), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .bento-card:hover::before {
+            opacity: 1;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-black);
+        }
+
+        .bento-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-black);
+            color: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .bento-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .bento-card p {
+            color: var(--secondary-gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .bento-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .bento-features li {
+            padding: 0.5rem 0;
+            color: var(--secondary-gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .bento-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-black);
+            font-weight: 700;
+        }
+
+        .bento-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .bento-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--secondary-gray);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 3rem;
+            background: var(--primary-black);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.7;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: var(--primary-black);
+            color: var(--white);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--white);
+            color: var(--primary-black);
+            padding: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 4rem 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Language Toggle */
+        .lang-switch {
+            background: transparent;
+            border: 1px solid var(--border-gray);
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-switch:hover {
+            border-color: var(--primary-black);
+            background: var(--light-gray);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Language Control */
+        .lang-en {
+            display: none;
+        }
+
+        body.en .lang-it {
+            display: none;
+        }
+
+        body.en .lang-en {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo-container">
+                <img src="data:image/webp;base64,UklGRqohAABXRUJQVlA4WAoAAAAoAAAArwQAcwIASUNDUKgBAAAAAAGobGNtcwIQAABtbnRyUkdCIFhZWiAH3AABABkAAwApADlhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAF9jcHJ0AAABTAAAAAx3dHB0AAABWAAAABRyWFlaAAABbAAAABRnWFlaAAABgAAAABRiWFlaAAABlAAAABRyVFJDAAABDAAAAEBnVFJDAAABDAAAAEBiVFJDAAABDAAAAEBkZXNjAAAAAAAAAAVjMmNpAAAAAAAAAAAAAAAAY3VydgAAAAAAAAAaAAAAywHJA2MFkghrC/YQPxVRGzQh8SmQMhg7kkYFUXdd7WtwegWJsZp8rGm/fdPD6TD//3RleHQAAAAAQ0MwAFhZWiAAAAAAAAD21gABAAAAANMtWFlaIAAAAAAAAG+iAAA49QAAA5BYWVogAAAAAAAAYpkAALeFAAAY2lhZWiAAAAAAAAAkoAAAD4QAALbPVlA4IBofAACwIwGdASqwBHQCPkUikEWioiGR+ZQEKAREtLdwu6coejfRdI7P8nl+q8Yf2/8pPhB3N/av7z+3v9u94+pL6x8kTzDwN/iv2J/Of2v9x/y++Ke838c/kvQC/Ev5H/kP7b+235l8aDrH40ewF7T/T/8l/iPyP9I79d9CPsP/x/cA/Wr/U/bN9B95v6d7AH8j/sn+y/vf5kfTL/L/9X/Hf6r9uPbF+d/4z/r/53/N/If/Kf65/y/7/7ZXr8/cb2Qf1t/+gVBc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cU" alt="AIPath" class="logo-img">
+                <span class="logo-text">AIPath</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="lang-it">Home</a><a href="#home" class="lang-en">Home</a></li>
+                <li><a href="#servizi" class="lang-it">Servizi</a><a href="#servizi" class="lang-en">Services</a></li>
+                <li><a href="#formazione" class="lang-it">Formazione</a><a href="#formazione" class="lang-en">Training</a></li>
+                <li><a href="#contatti" class="cta-nav lang-it">Inizia Ora</a><a href="#contatti" class="cta-nav lang-en">Start Now</a></li>
+                <li><button class="lang-switch" onclick="toggleLanguage()">EN / IT</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span></span>
+                <span class="lang-it">Il Futuro è Intelligenza Artificiale</span>
+                <span class="lang-en">The Future is Artificial Intelligence</span>
+            </div>
+            <h1>
+                <span class="gradient-text lang-it">Trasforma il tuo business</span>
+                <span class="gradient-text lang-en">Transform your business</span><br>
+                <span class="lang-it">con l'IA</span>
+                <span class="lang-en">with AI</span>
+            </h1>
+            <p class="lang-it">
+                Sviluppo web potenziato dall'intelligenza artificiale e formazione professionale per portare la tua azienda nel futuro digitale.
+            </p>
+            <p class="lang-en">
+                AI-powered web development and professional training to bring your company into the digital future.
+            </p>
+            <div class="hero-buttons">
+                <a href="#servizi" class="btn btn-primary lang-it">Scopri i Servizi</a>
+                <a href="#servizi" class="btn btn-primary lang-en">Discover Services</a>
+                <a href="#contatti" class="btn btn-secondary lang-it">Contattaci</a>
+                <a href="#contatti" class="btn btn-secondary lang-en">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bento-section" id="servizi">
+        <div class="section-title">
+            <h2 class="lang-it">Servizi</h2>
+            <h2 class="lang-en">Services</h2>
+            <p class="lang-it">Soluzioni su misura per ogni esigenza</p>
+            <p class="lang-en">Tailored solutions for every need</p>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card">
+                <div class="bento-icon">WEB</div>
+                <h3 class="lang-it">Sviluppo Siti Web</h3>
+                <h3 class="lang-en">Web Development</h3>
+                <p class="lang-it">
+                    Creiamo siti web professionali, responsive e ottimizzati per i motori di ricerca con le tecnologie più avanzate.
+                </p>
+                <p class="lang-en">
+                    We create professional, responsive websites optimized for search engines with the most advanced technologies.
+                </p>
+                <ul class="bento-features">
+                    <li class="lang-it">Design moderno e personalizzato</li>
+                    <li class="lang-en">Modern and customized design</li>
+                    <li class="lang-it">SEO e performance optimization</li>
+                    <li class="lang-en">SEO and performance optimization</li>
+                    <li class="lang-it">Mobile-first responsive</li>
+                    <li class="lang-en">Mobile-first responsive</li>
+                </ul>
+                <a href="#contatti" class="btn btn-primary" onclick="setService('web')">
+                    <span class="lang-it">Richiedi Preventivo</span>
+                    <span class="lang-en">Request Quote</span>
+                </a>
+            </div>
+
+            <div class="bento-card">
+                <div class="bento-icon">AI</div>
+                <h3 class="lang-it">Soluzioni AI</h3>
+                <h3 class="lang-en">AI Solutions</h3>
+                <p class="lang-it">
+                    Integriamo l'intelligenza artificiale nei tuoi progetti per automatizzare processi e migliorare l'efficienza.
+                </p>
+                <p class="lang-en">
+                    We integrate artificial intelligence into your projects to automate processes and improve efficiency.
+                </p>
+                <ul class="bento-features">
+                    <li class="lang-it">Chatbot intelligenti</li>
+                    <li class="lang-en">Intelligent chatbots</li>
+                    <li class="lang-it">Automazione workflow</li>
+                    <li class="lang-en">Workflow automation</li>
+                    <li class="lang-it">Analisi predittiva</li>
+                    <li class="lang-en">Predictive analysis</li>
+                </ul>
+                <a href="#contatti" class="btn btn-primary" onclick="setService('ai')">
+                    <span class="lang-it">Richiedi Preventivo</span>
+                    <span class="lang-en">Request Quote</span>
+                </a>
+            </div>
+
+            <div class="bento-card">
+                <div class="bento-icon">STR</div>
+                <h3 class="lang-it">Consulenza Strategica</h3>
+                <h3 class="lang-en">Strategic Consulting</h3>
+                <p class="lang-it">
+                    Ti guidiamo nella trasformazione digitale identificando le migliori opportunità per il tuo business.
+                </p>
+                <p class="lang-en">
+                    We guide you through digital transformation by identifying the best opportunities for your business.
+                </p>
+                <ul class="bento-features">
+                    <li class="lang-it">Analisi strategica digitale</li>
+                    <li class="lang-en">Digital strategic analysis</li>
+                    <li class="lang-it">Roadmap implementazione</li>
+                    <li class="lang-en">Implementation roadmap</li>
+                    <li class="lang-it">ROI optimization</li>
+                    <li class="lang-en">ROI optimization</li>
+                </ul>
+                <a href="#contatti" class="btn btn-primary" onclick="setService('consulting')">
+                    <span class="lang-it">Richiedi Preventivo</span>
+                    <span class="lang-en">Request Quote</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section class="bento-section" id="formazione">
+        <div class="section-title">
+            <h2 class="lang-it">Formazione</h2>
+            <h2 class="lang-en">Training</h2>
+            <p class="lang-it">Impara a sfruttare il potenziale dell'IA</p>
+            <p class="lang-en">Learn to harness the potential of AI</p>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card">
+                <div class="bento-icon">01</div>
+                <h3 class="lang-it">Corso Base IA</h3>
+                <h3 class="lang-en">AI Fundamentals</h3>
+                <p class="lang-it">
+                    Introduzione ai concetti fondamentali dell'intelligenza artificiale e applicazioni pratiche nel business.
+                </p>
+                <p class="lang-en">
+                    Introduction to fundamental AI concepts and practical business applications.
+                </p>
+                <div class="bento-price">
+                    10€ <span class="lang-it">/ persona</span><span class="lang-en">/ person</span>
+                </div>
+                <a href="#contatti" class="btn btn-primary" onclick="setService('basic')">
+                    <span class="lang-it">Iscriviti</span>
+                    <span class="lang-en">Enroll</span>
+                </a>
+            </div>
+
+            <div class="bento-card">
+                <div class="bento-icon">02</div>
+                <h3 class="lang-it">IA per il Marketing</h3>
+                <h3 class="lang-en">AI for Marketing</h3>
+                <p class="lang-it">
+                    Impara a utilizzare l'IA per content creation, social media e analisi del mercato.
+                </p>
+                <p class="lang-en">
+                    Learn to use AI for content creation, social media and market analysis.
+                </p>
+                <div class="bento-price">
+                    20€ <span class="lang-it">/ persona</span><span class="lang-en">/ person</span>
+                </div>
+                <a href="#contatti" class="btn btn-primary" onclick="setService('marketing')">
+                    <span class="lang-it">Iscriviti</span>
+                    <span class="lang-en">Enroll</span>
+                </a>
+            </div>
+
+            <div class="bento-card">
+                <div class="bento-icon">03</div>
+                <h3 class="lang-it">IA Avanzata</h3>
+                <h3 class="lang-en">Advanced AI</h3>
+                <p class="lang-it">
+                    Programma completo per implementare soluzioni IA personalizzate nella tua azienda.
+                </p>
+                <p class="lang-en">
+                    Complete program to implement customized AI solutions in your company.
+                </p>
+                <div class="bento-price">
+                    40€ <span class="lang-it">/ persona</span><span class="lang-en">/ person</span>
+                </div>
+                <a href="#contatti" class="btn btn-primary" onclick="setService('advanced')">
+                    <span class="lang-it">Iscriviti</span>
+                    <span class="lang-en">Enroll</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contatti">
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="lang-it">Inizia il tuo progetto</h2>
+                    <h2 class="lang-en">Start your project</h2>
+                    <p class="lang-it">
+                        Siamo qui per trasformare le tue idee in realtà. Contattaci per una consulenza gratuita.
+                    </p>
+                    <p class="lang-en">
+                        We're here to turn your ideas into reality. Contact us for a free consultation.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">@</div>
+                            <div>
+                                <div style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">Email</div>
+                                <a href="mailto:aipath101@gmail.com">aipath101@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">IG</div>
+                            <div>
+                                <div style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">Instagram</div>
+                                <a href="https://www.instagram.com/aipath101/" target="_blank">@aipath101</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📍</div>
+                            <div>
+                                <div style="color: rgba(255,255,255,0.5); font-size: 0.9rem;" class="lang-it">Sede</div>
+                                <div style="color: rgba(255,255,255,0.5); font-size: 0.9rem;" class="lang-en">Location</div>
+                                <span class="lang-it">Brescia, Italia</span>
+                                <span class="lang-en">Brescia, Italy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label class="lang-it">Nome e Cognome *</label>
+                            <label class="lang-en">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Mario Rossi">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="mario@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="lang-it">Telefono</label>
+                            <label class="lang-en">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+39 123 456 7890">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="lang-it">Tipo di Richiesta *</label>
+                            <label class="lang-en">Request Type *</label>
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="" class="lang-it">Seleziona...</option>
+                                <option value="" class="lang-en">Select...</option>
+                                <option value="web" class="lang-it">Sviluppo Siti Web</option>
+                                <option value="web" class="lang-en">Web Development</option>
+                                <option value="ai" class="lang-it">Soluzioni AI Personalizzate</option>
+                                <option value="ai" class="lang-en">Custom AI Solutions</option>
+                                <option value="consulting" class="lang-it">Consulenza Strategica</option>
+                                <option value="consulting" class="lang-en">Strategic Consulting</option>
+                                <option value="basic" class="lang-it">Corso Base IA - 10€</option>
+                                <option value="basic" class="lang-en">AI Fundamentals - 10€</option>
+                                <option value="marketing" class="lang-it">IA per il Marketing - 20€</option>
+                                <option value="marketing" class="lang-en">AI for Marketing - 20€</option>
+                                <option value="advanced" class="lang-it">IA Avanzata - 40€</option>
+                                <option value="advanced" class="lang-en">Advanced AI - 40€</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="lang-it">Messaggio *</label>
+                            <label class="lang-en">Message *</label>
+                            <textarea id="message" name="message" required placeholder=""></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <span class="lang-it">Invia Richiesta</span>
+                            <span class="lang-en">Send Request</span>
+                        </button>
+
+                        <div class="success-message" id="successMessage">
+                            <span class="lang-it">✓ Richiesta inviata con successo!</span>
+                            <span class="lang-en">✓ Request sent successfully!</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="data:image/webp;base64,UklGRqohAABXRUJQVlA4WAoAAAAoAAAArwQAcwIASUNDUKgBAAAAAAGobGNtcwIQAABtbnRyUkdCIFhZWiAH3AABABkAAwApADlhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAF9jcHJ0AAABTAAAAAx3dHB0AAABWAAAABRyWFlaAAABbAAAABRnWFlaAAABgAAAABRiWFlaAAABlAAAABRyVFJDAAABDAAAAEBnVFJDAAABDAAAAEBiVFJDAAABDAAAAEBkZXNjAAAAAAAAAAVjMmNpAAAAAAAAAAAAAAAAY3VydgAAAAAAAAAaAAAAywHJA2MFkghrC/YQPxVRGzQh8SmQMhg7kkYFUXdd7WtwegWJsZp8rGm/fdPD6TD//3RleHQAAAAAQ0MwAFhZWiAAAAAAAAD21gABAAAAANMtWFlaIAAAAAAAAG+iAAA49QAAA5BYWVogAAAAAAAAYpkAALeFAAAY2lhZWiAAAAAAAAAkoAAAD4QAALbPVlA4IBofAACwIwGdASqwBHQCPkUikEWioiGR+ZQEKAREtLdwu6coejfRdI7P8nl+q8Yf2/8pPhB3N/av7z+3v9u94+pL6x8kTzDwN/iv2J/Of2v9x/y++Ke838c/kvQC/Ev5H/kP7b+235l8aDrH40ewF7T/T/8l/iPyP9I79d9CPsP/x/cA/Wr/U/bN9B95v6d7AH8j/sn+y/vf5kfTL/L/9X/Hf6r9uPbF+d/4z/r/53/N/If/Kf65/y/7/7ZXr8/cb2Qf1t/+gVBc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cYubo4xc3Rxi5ujjFzdHGLm6OMXN0cU" alt="AIPath" style="filter: brightness(0) invert(1);">
+                    <h3>AIPath</h3>
+                </div>
+                <p class="lang-it">
+                    Trasformiamo idee in soluzioni digitali innovative attraverso l'intelligenza artificiale e le migliori pratiche di sviluppo.
+                </p>
+                <p class="lang-en">
+                    We transform ideas into innovative digital solutions through artificial intelligence and best development practices.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="lang-it">Servizi</h4>
+                <h4 class="lang-en">Services</h4>
+                <ul>
+                    <li><a href="#servizi" class="lang-it">Sviluppo Web</a><a href="#servizi" class="lang-en">Web Development</a></li>
+                    <li><a href="#servizi" class="lang-it">Soluzioni IA</a><a href="#servizi" class="lang-en">AI Solutions</a></li>
+                    <li><a href="#servizi" class="lang-it">Consulenza</a><a href="#servizi" class="lang-en">Consulting</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="lang-it">Formazione</h4>
+                <h4 class="lang-en">Training</h4>
+                <ul>
+                    <li><a href="#formazione" class="lang-it">Corso Base</a><a href="#formazione" class="lang-en">Fundamentals</a></li>
+                    <li><a href="#formazione" class="lang-it">Marketing IA</a><a href="#formazione" class="lang-en">AI Marketing</a></li>
+                    <li><a href="#formazione" class="lang-it">IA Avanzata</a><a href="#formazione" class="lang-en">Advanced AI</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="lang-it">Contatti</h4>
+                <h4 class="lang-en">Contact</h4>
+                <ul>
+                    <li><a href="mailto:aipath101@gmail.com">Email</a></li>
+                    <li><a href="https://www.instagram.com/aipath101/" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 AIPath. <span class="lang-it">Tutti i diritti riservati. Progettato in Italia</span><span class="lang-en">All rights reserved. Designed in Italy</span> 🇮🇹</p>
+        </div>
+    </footer>
+
+    <script>
+        // Service messages
+        const serviceMessages = {
+            it: {
+                web: "Salve, sono interessato al servizio di Sviluppo Siti Web. Vorrei avere maggiori informazioni e un preventivo.",
+                ai: "Salve, sono interessato alle Soluzioni AI Personalizzate. Vorrei discutere come l'IA può aiutare il mio business.",
+                consulting: "Salve, sono interessato alla Consulenza Strategica. Vorrei una consulenza sulla trasformazione digitale.",
+                basic: "Salve, vorrei iscrivermi al Corso Base IA (10€). Potete darmi maggiori informazioni?",
+                marketing: "Salve, vorrei iscrivermi al corso IA per il Marketing (20€). Quando inizia il prossimo corso?",
+                advanced: "Salve, vorrei iscrivermi al corso IA Avanzata per Aziende (40€). Quali sono i prerequisiti?"
+            },
+            en: {
+                web: "Hello, I'm interested in the Web Development service. I would like more information and a quote.",
+                ai: "Hello, I'm interested in Custom AI Solutions. I would like to discuss how AI can help my business.",
+                consulting: "Hello, I'm interested in Strategic Consulting. I would like a consultation on digital transformation.",
+                basic: "Hello, I would like to enroll in the AI Fundamentals Course (10€). Can you give me more information?",
+                marketing: "Hello, I would like to enroll in the AI for Marketing course (20€). When does the next course start?",
+                advanced: "Hello, I would like to enroll in the Advanced AI for Business course (40€). What are the prerequisites?"
+            }
+        };
+
+        // Set service type
+        function setService(type) {
+            const select = document.getElementById('serviceType');
+            select.value = type;
+            const lang = document.body.classList.contains('en') ? 'en' : 'it';
+            const messageField = document.getElementById('message');
+            messageField.value = serviceMessages[lang][type];
+        }
+
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value || 'Non fornito';
+            const serviceType = document.getElementById('serviceType').value;
+            const message = document.getElementById('message').value;
+            
+            const lang = document.body.classList.contains('en') ? 'en' : 'it';
+            
+            // Service type labels
+            const serviceLabels = {
+                it: {
+                    web: 'Sviluppo Siti Web',
+                    ai: 'Soluzioni AI Personalizzate',
+                    consulting: 'Consulenza Strategica',
+                    basic: 'Corso Base IA - 10€',
+                    marketing: 'IA per il Marketing - 20€',
+                    advanced: 'IA Avanzata - 40€'
+                },
+                en: {
+                    web: 'Web Development',
+                    ai: 'Custom AI Solutions',
+                    consulting: 'Strategic Consulting',
+                    basic: 'AI Fundamentals - 10€',
+                    marketing: 'AI for Marketing - 20€',
+                    advanced: 'Advanced AI - 40€'
+                }
+            };
+            
+            const subject = `Richiesta: ${serviceLabels[lang][serviceType]}`;
+            const body = `Nome: ${name}%0D%0AEmail: ${email}%0D%0ATelefono: ${phone}%0D%0A%0D%0AServizio/Corso: ${serviceLabels[lang][serviceType]}%0D%0A%0D%0AMessaggio:%0D%0A${message}`;
+            
+            // Open email client
+            window.location.href = `mailto:aipath101@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+            
+            // Reset form after a short delay
+            setTimeout(() => {
+                this.reset();
+            }, 1000);
+        });
+
+        // Update message when service type changes
+        document.getElementById('serviceType').addEventListener('change', function() {
+            const lang = document.body.classList.contains('en') ? 'en' : 'it';
+            const messageField = document.getElementById('message');
+            if (this.value && serviceMessages[lang][this.value]) {
+                messageField.value = serviceMessages[lang][this.value];
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Language toggle
+        function toggleLanguage() {
+            const currentLang = document.body.classList.contains('en') ? 'it' : 'en';
+            if (currentLang === 'en') {
+                document.body.classList.add('en');
+                localStorage.setItem('language', 'en');
+            } else {
+                document.body.classList.remove('en');
+                localStorage.setItem('language', 'it');
+            }
+        }
+
+        // Load saved language
+        window.addEventListener('load', function() {
+            const savedLang = localStorage.getItem('language');
+            if (savedLang === 'en') {
+                document.body.classList.add('en');
+            }
+        });
+    </script>
+</body>
+</html>
